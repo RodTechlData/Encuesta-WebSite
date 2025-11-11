@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Gracias! - DataflowIA</title>
+    <title>Cuestionario de Intereses Tecnológicos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -25,21 +25,8 @@
             }
         }
         
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-        
         .animate-fade-in {
             animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .animate-bounce-slow {
-            animation: bounce 2s ease-in-out infinite;
         }
         
         .glass-container {
@@ -50,17 +37,54 @@
                         0 0 100px rgba(139, 92, 246, 0.15);
         }
         
-        .gradient-text {
-            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        textarea {
+            background: rgba(30, 30, 46, 0.8);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #e0e0e0;
+            transition: all 0.3s ease;
         }
         
-        .btn-gradient {
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            background: rgba(30, 30, 46, 1);
+            border-color: #8b5cf6;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            outline: none;
+        }
+        
+        input[type="radio"]:checked + label {
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.6),
+                        0 4px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+        
+        input[type="radio"] + label {
+            transition: all 0.3s ease;
+            background: rgba(30, 30, 46, 0.6);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #c084fc;
+        }
+        
+        input[type="radio"] + label:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-submit {
             background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);
             background-size: 200% 200%;
             animation: gradientShift 3s ease infinite;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
         }
         
         @keyframes gradientShift {
@@ -69,79 +93,221 @@
             100% { background-position: 0% 50%; }
         }
         
-        .success-icon {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            box-shadow: 0 0 60px rgba(139, 92, 246, 0.5);
+        .btn-submit:hover {
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
+            transform: translateY(-3px);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        label {
+            color: #c084fc;
+        }
+        
+        .divider-gradient {
+            background: linear-gradient(90deg, transparent 0%, #8b5cf6 50%, transparent 100%);
+            height: 2px;
+        }
+
+        ::placeholder {
+            color: #6b7280;
         }
     </style>
 </head>
 <body class="p-4 flex items-center justify-center min-h-screen">
 
-    <div class="w-full max-w-2xl glass-container rounded-2xl p-8 md:p-12 animate-fade-in text-center">
-        
-        <div class="success-icon mb-8 animate-bounce-slow">
-            <svg class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-        </div>
+    <div class="w-full max-w-xl glass-container rounded-2xl p-6 md:p-10 animate-fade-in">
 
-        <h1 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4">
-            ¡Formulario Enviado! 🎉
-        </h1>
-        
-        <p class="text-xl text-gray-300 mb-2">
-            Gracias por completar el cuestionario
-        </p>
-        
-        <p class="text-lg text-gray-400 mb-8">
-            Tus respuestas han sido enviadas exitosamente a<br>
-            <span class="font-bold text-purple-400">rodrigo@dataflowia.com</span>
-        </p>
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold gradient-text mb-3">🚀 ¿Qué quieres crear?</h1>
+            <p class="mt-2 text-gray-300 text-sm md:text-base">Ayúdanos a entender tus intereses en el mundo de la tecnología.</p>
+        </header>
 
-        <div class="glass-container rounded-xl p-6 mb-8 text-left">
-            <h2 class="text-2xl font-bold gradient-text mb-4">¿Qué sigue ahora?</h2>
-            <ul class="space-y-3 text-gray-300">
-                <li class="flex items-start">
-                    <span class="text-purple-400 font-bold mr-3">✓</span>
-                    <span>Revisaremos tus intereses tecnológicos cuidadosamente</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-pink-400 font-bold mr-3">✓</span>
-                    <span>Te contactaremos pronto con información personalizada</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-orange-400 font-bold mr-3">✓</span>
-                    <span>Recibirás recursos y recomendaciones basadas en tus respuestas</span>
-                </li>
-            </ul>
-        </div>
+        <form id="techInterestForm" class="space-y-6">
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.dataflowia.com" target="_blank" class="btn-gradient px-8 py-3 rounded-xl text-white font-bold shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
-                Visitar DataflowIA
-            </a>
-            <a href="index.html" class="glass-container px-8 py-3 rounded-xl text-purple-300 font-bold hover:bg-purple-500 hover:bg-opacity-20 transition duration-300 transform hover:scale-105">
-                Volver al Inicio
-            </a>
-        </div>
+            <h2 class="text-xl font-semibold gradient-text pb-2 mb-4">Tus Datos</h2>
+            <div class="divider-gradient mb-6"></div>
 
-        <div class="mt-12 pt-8 border-t border-purple-500 border-opacity-30">
-            <p class="text-sm text-gray-400 mb-2">
-                ¿Tienes preguntas? Contáctanos:
+            <div>
+                <label for="name" class="block text-sm font-medium">Tu Nombre Completo</label>
+                <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-lg shadow-sm p-3 border">
+            </div>
+
+            <div class="flex space-x-4">
+                <div class="flex-1">
+                    <label for="age" class="block text-sm font-medium">Tu Edad</label>
+                    <input type="number" id="age" name="age" required min="14" max="18" class="mt-1 block w-full rounded-lg shadow-sm p-3 border">
+                </div>
+                <div class="flex-1">
+                    <label for="email" class="block text-sm font-medium">Tu Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-lg shadow-sm p-3 border">
+                </div>
+            </div>
+
+            <h2 class="text-xl font-semibold gradient-text pb-2 mb-4 pt-4">Tus Intereses Tech</h2>
+            <div class="divider-gradient mb-6"></div>
+
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-200">1. ¿Te gustaría aprender cómo hacer que una computadora tome decisiones o reconozca imágenes (Inteligencia Artificial)?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q1_si" name="q1_ai_interest" value="Sí" required class="hidden">
+                    <label for="q1_si" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">Sí, totalmente</label>
+                    <input type="radio" id="q1_no" name="q1_ai_interest" value="No" class="hidden">
+                    <label for="q1_no" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">No, prefiero otra cosa</label>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-200">2. ¿Te interesa construir páginas web visualmente atractivas que funcionen perfectamente en el móvil y la computadora?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q2_si" name="q2_web_interest" value="Sí" required class="hidden">
+                    <label for="q2_si" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">Sí, me encanta el diseño web</label>
+                    <input type="radio" id="q2_no" name="q2_web_interest" value="No" class="hidden">
+                    <label for="q2_no" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">No me llama tanto la atención</label>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-200">3. ¿Preferirías crear aplicaciones que se instalen en tu teléfono (Android o iOS) en lugar de páginas web?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q3_si" name="q3_app_interest" value="Sí" required class="hidden">
+                    <label for="q3_si" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">Sí, apps móviles primero</label>
+                    <input type="radio" id="q3_no" name="q3_app_interest" value="No" class="hidden">
+                    <label for="q3_no" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">No, prefiero la web o la IA</label>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-200">4. ¿Sientes más curiosidad por la parte visible de un programa (el diseño) o por la lógica interna (el "cerebro" que lo hace funcionar)?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q4_diseno" name="q4_role_preference" value="Diseño (Front-end/UI)" required class="hidden">
+                    <label for="q4_diseno" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">Diseño / Interfaz de Usuario</label>
+                    <input type="radio" id="q4_logica" name="q4_role_preference" value="Lógica (Back-end/IA)" class="hidden">
+                    <label for="q4_logica" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">Lógica / Funcionamiento Interno</label>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-200">5. ¿Qué lenguaje de programación te gustaría aprender para crear cosas (si tienes idea)?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q5_python" name="q5_language" value="Python (IA, Data)" required class="hidden">
+                    <label for="q5_python" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">Python (IA, Data)</label>
+                    <input type="radio" id="q5_javascript" name="q5_language" value="JavaScript (Web, Apps)" class="hidden">
+                    <label for="q5_javascript" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">JavaScript (Web, Apps)</label>
+                    <input type="radio" id="q5_ninguno" name="q5_language" value="No sé / Cualquiera me sirve" class="hidden">
+                    <label for="q5_ninguno" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">No sé / Cualquiera me sirve</label>
+                </div>
+            </div>
+            
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-200">6. ¿Además de software (programas), te atrae la idea de trabajar con hardware o robótica (programar cosas físicas)?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q6_si" name="q6_hardware_interest" value="Sí" required class="hidden">
+                    <label for="q6_si" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">Sí, la robótica es genial</label>
+                    <input type="radio" id="q6_no" name="q6_hardware_interest" value="No" class="hidden">
+                    <label for="q6_no" class="cursor-pointer px-4 py-2 border rounded-full transition duration-150 text-sm font-medium">No, solo software</label>
+                </div>
+            </div>
+
+            <div class="pt-4">
+                <label for="additional_interests" class="block text-sm font-medium">7. ¿Hay algo más que te gustaría aprender sobre tecnología o desarrollo?</label>
+                <textarea id="additional_interests" name="additional_interests" rows="3" class="mt-1 block w-full rounded-lg shadow-sm p-3 border" placeholder="Escribe aquí tus ideas o dudas (videojuegos, bases de datos, ciberseguridad, etc.)."></textarea>
+            </div>
+
+            <div class="pt-6">
+                <button type="submit" class="btn-submit w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300 transform hover:scale-[1.02]">
+                    Enviar Respuestas ✨
+                </button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="hidden mt-8 p-6 glass-container rounded-xl text-center animate-fade-in">
+            <div class="inline-block p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-4">
+                <svg class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <h3 class="mt-2 text-xl font-bold gradient-text">¡Cuestionario Enviado!</h3>
+            <p class="mt-2 text-base text-gray-300">
+                Tus respuestas han sido enviadas exitosamente a 
+                <span class="font-bold text-purple-400">rodrigo@dataflowia.com</span>
             </p>
-            <a href="mailto:contacto@dataflowia.com" class="text-purple-400 hover:text-purple-300 transition duration-150 font-medium">
-                contacto@dataflowia.com
-            </a>
+            <div id="resultsOutput" class="mt-4 p-4 text-sm text-left bg-black bg-opacity-40 rounded-lg border border-purple-500 border-opacity-30 text-gray-300">
+            </div>
         </div>
 
+        <footer class="mt-8 pt-4 border-t border-purple-500 border-opacity-30 text-center text-sm text-gray-400">
+            <p class="mb-1">
+                <a href="https://www.dataflowia.com" target="_blank" class="text-purple-400 hover:text-purple-300 transition duration-150 font-medium">www.dataflowia.com</a>
+            </p>
+            <p>
+                Contacto: 
+                <a href="mailto:contacto@dataflowia.com" class="text-purple-400 hover:text-purple-300 transition duration-150 font-medium">contacto@dataflowia.com</a>
+            </p>
+        </footer>
     </div>
 
+    <script>
+        document.getElementById('techInterestForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const results = {};
+
+            const fieldMap = {
+                'name': 'Nombre',
+                'age': 'Edad',
+                'email': 'Email',
+                'q1_ai_interest': '1. Interés en IA',
+                'q2_web_interest': '2. Interés en Web',
+                'q3_app_interest': '3. Interés en Apps Móviles',
+                'q4_role_preference': '4. Rol Preferido',
+                'q5_language': '5. Lenguaje Inicial',
+                'q6_hardware_interest': '6. Interés en Hardware/Robótica',
+                'additional_interests': '7. Intereses Adicionales',
+            };
+
+            let outputHtml = '<h4 class="font-bold mb-3 text-purple-300">Resumen de Respuestas:</h4>';
+            formData.forEach((value, key) => {
+                const displayKey = fieldMap[key] || key;
+                outputHtml += `<p class="mb-1"><span class="font-semibold text-purple-400">${displayKey}:</span> <span class="text-gray-300">${value}</span></p>`;
+                results[key] = value;
+            });
+
+            try {
+                const response = await fetch('https://formsubmit.co/rodrigo@dataflowia.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        ...results,
+                        _subject: '🚀 Nuevo Cuestionario de Intereses Tecnológicos',
+                        _template: 'table',
+                        _captcha: 'false'
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('techInterestForm').classList.add('hidden');
+                    document.getElementById('resultsOutput').innerHTML = outputHtml;
+                    document.getElementById('successMessage').classList.remove('hidden');
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('Hubo un problema al enviar el formulario. Por favor, intenta nuevamente.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión. Por favor, verifica tu internet e intenta nuevamente.');
+            }
+        });
+    </script>
 </body>
 </html>
