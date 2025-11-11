@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Intereses Tecnológicos</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración para usar la fuente Inter -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* Slate 100 */
+        }
+        /* Estilo para los radio buttons y checkboxes */
+        input[type="radio"]:checked + label {
+            background-color: #1d4ed8; /* Blue 700 */
+            color: white;
+            border-color: #1d4ed8;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="p-4 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-xl bg-white shadow-2xl rounded-xl p-6 md:p-10">
+
+        <!-- Header -->
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl font-extrabold text-blue-800">🚀 ¿Qué quieres crear?</h1>
+            <p class="mt-2 text-gray-600">Ayúdanos a entender tus intereses en el mundo de la tecnología.</p>
+        </header>
+
+        <!-- Formulario -->
+        <form id="techInterestForm" class="space-y-6">
+
+            <!-- Sección de Datos Personales -->
+            <h2 class="text-xl font-semibold text-gray-700 border-b pb-2 mb-4">Tus Datos</h2>
+
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Tu Nombre Completo</label>
+                <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            </div>
+
+            <div class="flex space-x-4">
+                <div class="flex-1">
+                    <label for="age" class="block text-sm font-medium text-gray-700">Tu Edad</label>
+                    <input type="number" id="age" name="age" required min="14" max="18" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+                <div class="flex-1">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Tu Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+            </div>
+
+            <!-- Sección de Consultas Guía (6 Consultas) -->
+            <h2 class="text-xl font-semibold text-gray-700 border-b pb-2 mb-4 pt-4">Tus Intereses Tech</h2>
+
+            <!-- Consulta 1: Interés en AI -->
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-800">1. ¿Te gustaría aprender cómo hacer que una computadora tome decisiones o reconozca imágenes (Inteligencia Artificial)?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q1_si" name="q1_ai_interest" value="Sí" required class="hidden">
+                    <label for="q1_si" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">Sí, totalmente</label>
+                    <input type="radio" id="q1_no" name="q1_ai_interest" value="No" class="hidden">
+                    <label for="q1_no" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">No, prefiero otra cosa</label>
+                </div>
+            </div>
+
+            <!-- Consulta 2: Interés en Desarrollo Web (Front-end) -->
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-800">2. ¿Te interesa construir páginas web visualmente atractivas que funcionen perfectamente en el móvil y la computadora?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q2_si" name="q2_web_interest" value="Sí" required class="hidden">
+                    <label for="q2_si" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">Sí, me encanta el diseño web</label>
+                    <input type="radio" id="q2_no" name="q2_web_interest" value="No" class="hidden">
+                    <label for="q2_no" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">No me llama tanto la atención</label>
+                </div>
+            </div>
+
+            <!-- Consulta 3: Interés en Apps Móviles -->
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-800">3. ¿Preferirías crear aplicaciones que se instalen en tu teléfono (Android o iOS) en lugar de páginas web?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q3_si" name="q3_app_interest" value="Sí" required class="hidden">
+                    <label for="q3_si" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">Sí, apps móviles primero</label>
+                    <input type="radio" id="q3_no" name="q3_app_interest" value="No" class="hidden">
+                    <label for="q3_no" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">No, prefiero la web o la IA</label>
+                </div>
+            </div>
+
+            <!-- Consulta 4: Preferencia de Rol (Diseño vs. Lógica) -->
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-800">4. ¿Sientes más curiosidad por la parte visible de un programa (el diseño) o por la lógica interna (el "cerebro" que lo hace funcionar)?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q4_diseno" name="q4_role_preference" value="Diseño (Front-end/UI)" required class="hidden">
+                    <label for="q4_diseno" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">Diseño / Interfaz de Usuario</label>
+                    <input type="radio" id="q4_logica" name="q4_role_preference" value="Lógica (Back-end/IA)" class="hidden">
+                    <label for="q4_logica" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">Lógica / Funcionamiento Interno</label>
+                </div>
+            </div>
+
+            <!-- Consulta 5: Lenguaje de Programación Específico -->
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-800">5. ¿Qué lenguaje de programación te gustaría aprender para crear cosas (si tienes idea)?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q5_python" name="q5_language" value="Python (IA, Data)" required class="hidden">
+                    <label for="q5_python" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">Python (IA, Data)</label>
+                    <input type="radio" id="q5_javascript" name="q5_language" value="JavaScript (Web, Apps)" class="hidden">
+                    <label for="q5_javascript" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">JavaScript (Web, Apps)</label>
+                    <input type="radio" id="q5_ninguno" name="q5_language" value="No sé / Cualquiera me sirve" class="hidden">
+                    <label for="q5_ninguno" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">No sé / Cualquiera me sirve</label>
+                </div>
+            </div>
+            
+            <!-- Consulta 6: Interés en Hardware / Robótica -->
+            <div class="space-y-2">
+                <p class="text-base font-medium text-gray-800">6. ¿Además de software (programas), te atrae la idea de trabajar con hardware o robótica (programar cosas físicas)?</p>
+                <div class="flex flex-wrap gap-4">
+                    <input type="radio" id="q6_si" name="q6_hardware_interest" value="Sí" required class="hidden">
+                    <label for="q6_si" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">Sí, la robótica es genial</label>
+                    <input type="radio" id="q6_no" name="q6_hardware_interest" value="No" class="hidden">
+                    <label for="q6_no" class="cursor-pointer px-4 py-2 border border-blue-400 rounded-full text-blue-700 hover:bg-blue-50 transition duration-150 text-sm font-medium">No, solo software</label>
+                </div>
+            </div>
+
+            <!-- Área de texto para intereses adicionales -->
+            <div class="pt-4">
+                <label for="additional_interests" class="block text-sm font-medium text-gray-700">7. ¿Hay algo más que te gustaría aprender sobre tecnología o desarrollo?</label>
+                <textarea id="additional_interests" name="additional_interests" rows="3" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Escribe aquí tus ideas o dudas (videojuegos, bases de datos, ciberseguridad, etc.)."></textarea>
+            </div>
+
+            <!-- Botón de Envío -->
+            <div class="pt-6">
+                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 transform hover:scale-[1.01]">
+                    Enviar Respuestas
+                </button>
+            </div>
+        </form>
+
+        <!-- Contenedor de Mensajes (invisible al inicio) -->
+        <div id="successMessage" class="hidden mt-8 p-6 bg-green-100 border border-green-300 text-green-800 rounded-xl text-center">
+            <svg class="mx-auto h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 class="mt-2 text-xl font-bold">¡Cuestionario Enviado!</h3>
+            <p class="mt-1 text-base">
+                Simulación completada. Los resultados serían enviados a 
+                <span class="font-bold text-green-900">rodrigo@dataflowia.com</span>.
+            </p>
+            <div id="resultsOutput" class="mt-4 p-3 text-sm text-left bg-green-50 rounded-lg border border-green-200">
+                <!-- Los resultados se inyectarán aquí -->
+            </div>
+            <p class="mt-3 text-xs text-gray-600">
+                Nota: Esta es una simulación de envío. Para el envío real a tu correo electrónico,
+                necesitas conectar este formulario a un servicio de backend o una herramienta de formularios externa.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-8 pt-4 border-t border-gray-200 text-center text-sm text-gray-500">
+            <p class="mb-1">
+                <a href="https://www.dataflowia.com" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-150 font-medium">www.dataflowia.com</a>
+            </p>
+            <p>
+                Contacto: 
+                <a href="mailto:contacto@dataflowia.com" class="text-blue-600 hover:text-blue-800 transition duration-150 font-medium">contacto@dataflowia.com</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('techInterestForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío tradicional del formulario
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const results = {};
+
+            // Mapear los nombres de los campos a nombres legibles para la salida
+            const fieldMap = {
+                'name': 'Nombre',
+                'age': 'Edad',
+                'email': 'Email',
+                'q1_ai_interest': '1. Interés en IA',
+                'q2_web_interest': '2. Interés en Web',
+                'q3_app_interest': '3. Interés en Apps Móviles',
+                'q4_role_preference': '4. Rol Preferido',
+                'q5_language': '5. Lenguaje Inicial',
+                'q6_hardware_interest': '6. Interés en Hardware/Robótica',
+                'additional_interests': '7. Intereses Adicionales',
+            };
+
+            // Recoger los datos del formulario y preparar el texto de los resultados
+            let outputHtml = '<h4 class="font-bold mb-2">Resumen de Respuestas:</h4>';
+            formData.forEach((value, key) => {
+                const displayKey = fieldMap[key] || key;
+                outputHtml += `<p><span class="font-semibold">${displayKey}:</span> ${value}</p>`;
+                results[key] = value;
+            });
+
+            // ---------------------------------------------------------------------
+            // PUNTO CLAVE: Aquí es donde enviarías los datos a un servicio externo
+            // ---------------------------------------------------------------------
+            /*
+            // EJEMPLO de cómo se enviaría la data JSON a un servicio que reenvía a email.
+            // Necesitarías configurar un endpoint (como Formspree, Formsubmit, o tu propio backend)
+            // para que escuche esta solicitud y la reenvíe a rodrigo@dataflowia.com.
+            
+            // Reemplaza 'TU_ENDPOINT_DE_ENVIO_DE_EMAIL' con la URL real de tu servicio.
+            // Por ejemplo, con Formsubmit: action="https://formsubmit.co/rodrigo@dataflowia.com"
+            
+            // fetch('TU_ENDPOINT_DE_ENVIO_DE_EMAIL', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(results),
+            // })
+            // .then(response => {
+            //     if (response.ok) {
+            //         // Mostrar mensaje de éxito
+            //         document.getElementById('techInterestForm').classList.add('hidden');
+            //         document.getElementById('resultsOutput').innerHTML = outputHtml;
+            //         document.getElementById('successMessage').classList.remove('hidden');
+            //     } else {
+            //         // Mostrar mensaje de error
+            //         console.error('Error al enviar el formulario');
+            //     }
+            // })
+            // .catch(error => console.error('Error de red:', error));
+            */
+
+            // Simulación de Envío Exitoso (para este ejercicio)
+            document.getElementById('techInterestForm').classList.add('hidden');
+            document.getElementById('resultsOutput').innerHTML = outputHtml;
+            document.getElementById('successMessage').classList.remove('hidden');
+
+            // Desplazar la vista al mensaje de éxito (útil en móviles)
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
